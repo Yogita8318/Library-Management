@@ -16,15 +16,17 @@ public class Book {
 	private String title;
 	private String author;
 	private String category;
+	private int quantity;
 	private double price;
 	
 	
-	public Book(Integer id, String title, String author, String category, double price) {
+	public Book(Integer id, String title, String author, String category,int quantity, double price) {
 		super();
 		this.id = id;
 		this.title = title;
 		this.author = author;
 		this.category = category;
+		this.quantity=quantity;
 		this.price = price;
 	}
 	public Book() {
@@ -55,6 +57,9 @@ public class Book {
 	public void setCategory(String category) {
 		this.category = category;
 	}
+
+	public void setQuantity(int quantity){ this.quantity=quantity;}
+	public int getQuantity(){ return quantity;}
 	public double getPrice() {
 		return price;
 	}
@@ -63,7 +68,7 @@ public class Book {
 	}
 	@Override
 	public String toString() {
-		return "Book [id=" + id + ", title=" + title + ", author=" + author + ", category=" + category + ", price="
+		return "Book [id=" + id + ", title=" + title + ", author=" + author + ", category=" + category + ",quantity="+ quantity + ", price="
 				+ price + "]";
 	}
 	

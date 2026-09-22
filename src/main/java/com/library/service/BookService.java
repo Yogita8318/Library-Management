@@ -41,6 +41,7 @@ public class BookService {
             oldBook.setTitle(book.getTitle());
             oldBook.setAuthor(book.getAuthor());
             oldBook.setCategory(book.getCategory());
+            oldBook.setQuantity(book.getQuantity());
             oldBook.setPrice(book.getPrice());
 
             return bookRepository.save(oldBook);
@@ -61,6 +62,15 @@ public class BookService {
 
         return "Book not found";
     }
-	
+	//Search book
+    public List<Book> searchBook(String title)
+    {
+        return bookRepository.findByTitleContainingIgnoreCase(title);
+    }
+    //Available book
+    public List<Book> getAvailableBooks()
+    {
+        return bookRepository.findByQuantityGreaterThan(0);
+    }
 
 }

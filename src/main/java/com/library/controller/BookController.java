@@ -2,13 +2,7 @@ package com.library.controller;
 
 import java.util.List;
 
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.library.entity.Book;
 import com.library.service.BookService;
@@ -22,7 +16,7 @@ public class BookController {
         this.bookService = bookService;
     }
 
-    // CREATE
+    // CREATE a book(add a book)
     @PostMapping("/books")
     public Book saveBook(@RequestBody Book book) {
         return bookService.saveBook(book);
@@ -34,13 +28,13 @@ public class BookController {
         return bookService.getAllBooks();
     }
 
-    // READ ONE
+    // READ ONE book by id
     @GetMapping("/books/{id}")
     public Book getBookById(@PathVariable int id) {
         return bookService.getBookById(id);
     }
 
-    // UPDATE
+    // UPDATE by id
     @PutMapping("/books/{id}")
     public Book updateBook(
             @PathVariable int id,
@@ -49,10 +43,22 @@ public class BookController {
         return bookService.updateBook(id, book);
     }
 
-    // DELETE
+    // DELETE by id
     @DeleteMapping("/books/{id}")
     public String deleteBook(@PathVariable int id) {
         return bookService.deleteBook(id);
+    }
+    //Search a book
+    @GetMapping("/search/title")
+    public List<Book> searchBook(@RequestParam String title)
+    {
+        return bookService.searchBook(title);
+    }
+    //Available book
+    @GetMapping("/available")
+    public List<Book> getAvailableBook()
+    {
+        return bookService.getAvailableBooks();
     }
 
 }
