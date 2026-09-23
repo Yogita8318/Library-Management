@@ -16,11 +16,11 @@ public class Book {
 	private String title;
 	private String author;
 	private String category;
-	private int quantity;
+	private Integer quantity;
 	private double price;
 	
 	
-	public Book(Integer id, String title, String author, String category,int quantity, double price) {
+	public Book(Integer id, String title, String author, String category,Integer quantity, double price) {
 		super();
 		this.id = id;
 		this.title = title;
@@ -58,8 +58,8 @@ public class Book {
 		this.category = category;
 	}
 
-	public void setQuantity(int quantity){ this.quantity=quantity;}
-	public int getQuantity(){ return quantity;}
+	public void setQuantity(Integer quantity){ this.quantity=quantity;}
+	public Integer getQuantity(){ return quantity;}
 	public double getPrice() {
 		return price;
 	}
